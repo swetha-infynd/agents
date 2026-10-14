@@ -138,7 +138,7 @@ td.n{color:#b3b5c6}
 <p class="lead"><b>Quill</b> is a B2B sales intel orchestrator. Give it a target company and, optionally, a contact. It sends four specialist agents out to research, then fuses their findings into one structured prospect record.</p>
 <div class="stats">
 <div class="stat"><b>3&ndash;4 min</b><span>to run, per company</span></div>
-<div class="stat"><b>$0.06&ndash;0.07</b><span>cost per company</span></div>
+<div class="stat"><b>£0.045&ndash;0.053</b><span>cost per company</span></div>
 <div class="stat"><b>4</b><span>specialist worker agents</span></div>
 <div class="stat"><b>33</b><span>fields in the JSON output</span></div>
 </div></div>
@@ -200,7 +200,7 @@ td.n{color:#b3b5c6}
 <p class="lead"><b>Wayfarer</b> automates research and outreach for business travelers. It turns a travel brief into a personalized recommendation email for each client: routes, dining and events, sent straight from Outlook.</p>
 <div class="stats">
 <div class="stat"><b>&lt; 2 min</b><span>to run</span></div>
-<div class="stat"><b>~$0.05</b><span>cost per brief</span></div>
+<div class="stat"><b>~£0.04</b><span>cost per brief</span></div>
 <div class="stat"><b>1</b><span>single AI agent</span></div>
 <div class="stat"><b>Outlook</b><span>sends the email for you</span></div>
 </div></div>
@@ -251,20 +251,20 @@ td.n{color:#b3b5c6}
 <div class="plans">
 <article class="plan">
 <h3>Starter</h3><p class="for">For teams piloting their first agents.</p>
-<div class="price"><sup>$</sup><b data-p="19">19</b><span>/user/month</span></div>
-<p class="fine" data-m="5" data-q="57">Minimum 5 users &middot; $57 billed quarterly</p>
+<div class="price"><sup>£</sup><b data-p="14.25">14.25</b><span>/user/month</span></div>
+<p class="fine" data-m="5" data-q="42.75">Minimum 5 users &middot; £42.75 billed quarterly</p>
 <a class="btn ghost" href="#pricing">Contact us</a>
 <ul class="feat"><li>AI Chat &amp; Knowledge Base</li><li>Agent builder with personas &amp; tools</li><li>Industry agent templates</li><li><b>10</b> AI agents per workspace</li><li>Basic workflow builder + approval gates</li><li>Basic audit logs</li><li>Standard support</li></ul></article>
 <article class="plan pop"><span class="badge">Most popular</span>
 <h3>Business</h3><p class="for">For teams scaling agents across the org.</p><span class="trial">14-day free trial</span>
-<div class="price"><sup>$</sup><b data-p="49">49</b><span>/user/month</span></div>
-<p class="fine" data-m="20" data-q="147">Minimum 20 users &middot; $147 billed quarterly</p>
+<div class="price"><sup>£</sup><b data-p="36.75">36.75</b><span>/user/month</span></div>
+<p class="fine" data-m="20" data-q="110.25">Minimum 20 users &middot; £110.25 billed quarterly</p>
 <a class="btn wide" href="#pricing">Contact us</a>
 <ul class="feat"><li class="lead-in">Everything in Starter, plus:</li><li><b>Unlimited</b> AI agents</li><li>Advanced workflow builder</li><li>API access</li><li>SSO &amp; RBAC</li><li>Full audit logs</li><li>Private cloud (add-on)</li><li>BYO LLM</li><li>Priority support</li></ul></article>
 <article class="plan">
 <h3>Enterprise</h3><p class="for">For governed, org-wide agent deployment.</p>
-<div class="price"><sup>$</sup><b data-p="99">99</b><span>/user/month</span></div>
-<p class="fine" data-m="100" data-q="297">Minimum 100 users &middot; $297 billed quarterly</p>
+<div class="price"><sup>£</sup><b data-p="74.25">74.25</b><span>/user/month</span></div>
+<p class="fine" data-m="100" data-q="222.75">Minimum 100 users &middot; £222.75 billed quarterly</p>
 <a class="btn ghost" href="#pricing">Contact us</a>
 <ul class="feat"><li class="lead-in">Everything in Business, plus:</li><li>Enterprise audit logs</li><li>Private cloud included option</li><li>Enterprise SLA support</li><li>Custom guardrails &amp; evals<span class="new">NEW</span></li><li>Private model deployment<span class="new">NEW</span></li><li>Multi-region deployment<span class="new">NEW</span></li></ul></article>
 </div>
@@ -287,7 +287,7 @@ td.n{color:#b3b5c6}
 <tr><td>Multi-region deployment</td><td class="n">&ndash;</td><td class="n">&ndash;</td><td class="y">&#10003;</td></tr>
 <tr><td>Support</td><td>Standard</td><td>Priority</td><td>Enterprise SLA</td></tr>
 </tbody></table></div>
-<div class="card" style="margin-top:24px"><h3>Budgeting note</h3><p style="margin-top:6px">The quarterly figure shown on each plan is the cost of one user for three months. Your total scales with seats, and each plan has a seat minimum: Starter 5 seats (about $285 per quarter), Business 20 seats (about $2,940 per quarter) and Enterprise 100 seats (about $29,700 per quarter).</p></div>
+<div class="card" style="margin-top:24px"><h3>Budgeting note</h3><p style="margin-top:6px">The quarterly figure shown on each plan is the cost of one user for three months. Your total scales with seats, and each plan has a seat minimum: Starter 5 seats (about £213.75 per quarter), Business 20 seats (about £2,205 per quarter) and Enterprise 100 seats (about £22,275 per quarter).</p></div>
 </div></section>
 </div>
 </main>
@@ -297,7 +297,7 @@ td.n{color:#b3b5c6}
 function set(yr){q.setAttribute('aria-pressed',!yr);y.setAttribute('aria-pressed',yr);
 document.querySelectorAll('.price b').forEach(function(b){var p=+b.dataset.p;b.textContent=yr?(p*.8).toFixed(2).replace(/\.00$/,''):p;});
 document.querySelectorAll('.fine').forEach(function(f){var p=+f.dataset.q/3,m=f.dataset.m;
-f.innerHTML=yr?'Minimum '+m+' users &middot; $'+(p*.8*12).toFixed(2)+' billed yearly':'Minimum '+m+' users &middot; $'+(p*3)+' billed quarterly';});}
+f.innerHTML=yr?'Minimum '+m+' users &middot; £'+(p*.8*12).toFixed(2)+' billed yearly':'Minimum '+m+' users &middot; £'+(p*3).toFixed(2)+' billed quarterly';});}
 q.onclick=function(){set(false)};y.onclick=function(){set(true)};})();
 </script>
 <script>
