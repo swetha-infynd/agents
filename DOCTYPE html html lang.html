@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#6d28d9"><title>Agent Studio | 27x.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--ink:#0f1020;--muted:#5d6176;--line:#e7e6f2;--primary:#5b52d6;--primary-d:#4a41c0;--brand:#6d28d9;--tint:#efedff;--tint2:#f7f6ff;--grad:linear-gradient(135deg,#6d28d9 0%,#8b5cf6 45%,#d946ef 100%);--r:16px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;
+background-image:linear-gradient(rgba(91,82,214,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(91,82,214,.055) 1px,transparent 1px);background-size:44px 44px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid #a99bff;outline-offset:2px;border-radius:8px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+/* nav */
+.nav{position:sticky;top:14px;z-index:20;max-width:1120px;margin:14px auto 0;padding:0 24px}
+.nav-in{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px 24px;box-shadow:0 10px 30px -12px rgba(91,82,214,.25)}
+.logo{font-weight:800;font-size:26px;letter-spacing:-.04em;display:inline-flex;align-items:baseline}
+.logo .x{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 1px}
+.logo .ai{color:var(--brand);font-weight:700;font-size:.82em;letter-spacing:-.02em}
+.links{display:flex;gap:32px;font-size:15px;font-weight:500}
+.links a{padding:6px 0;border-bottom:2px solid transparent}
+.links a:hover,.links a.on{border-color:var(--primary);color:var(--primary-d)}
+.nav-r{display:flex;align-items:center;gap:20px;font-size:15px;font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:600;font-size:15px;padding:11px 22px;border-radius:999px;background:var(--primary);color:#fff;border:1px solid var(--primary);cursor:pointer;transition:background .15s}
+.btn:hover{background:var(--primary-d)}
+.btn.ghost{background:#fff;color:var(--ink);border-color:var(--line);border-radius:12px;width:100%}
+.btn.ghost:hover{background:var(--tint2);border-color:#cfcaf7}
+.btn.wide{border-radius:12px;width:100%}
+@media(max-width:860px){.links{display:none}}
+/* hero */
+.hero{padding:72px 0 36px;text-align:center}
+.pill{display:inline-flex;gap:8px;align-items:center;background:var(--tint);color:var(--primary-d);font-weight:600;font-size:13px;padding:6px 14px;border-radius:999px}
+h1{font-size:clamp(34px,5.4vw,58px);line-height:1.08;letter-spacing:-.035em;font-weight:800;margin:20px auto 0;max-width:15em}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:19px;color:var(--muted);max-width:44em;margin:20px auto 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin:44px 0 0}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;text-align:left}
+.stat b{display:block;font-size:30px;letter-spacing:-.03em;color:var(--brand);line-height:1.1}
+.stat span{font-size:14px;color:var(--muted)}
+section{padding:56px 0}
+h2{font-size:clamp(26px,3.4vw,36px);letter-spacing:-.03em;line-height:1.15;font-weight:800}
+.sub{color:var(--muted);margin-top:10px;max-width:40em}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px}
+.grid{display:grid;gap:18px;margin-top:30px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.icon{width:42px;height:42px;border-radius:12px;background:var(--tint);color:var(--brand);display:grid;place-items:center;font-weight:800;margin-bottom:14px}
+h3{font-size:19px;letter-spacing:-.02em;line-height:1.3}
+.role{color:var(--primary-d);font-weight:600;font-size:14px;margin:2px 0 10px}
+.card p{color:var(--muted);font-size:15px}
+/* flow */
+.flow{display:flex;align-items:stretch;gap:14px;flex-wrap:wrap;margin-top:30px}
+.node{flex:1 1 200px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.node.hl{background:var(--primary);border-color:var(--primary);color:#fff}
+.node.hl p{color:#e4e1ff}
+.node h3{font-size:16px}.node p{font-size:14px;color:var(--muted);margin-top:6px}
+.arrow{align-self:center;color:#a79fe8;font-size:22px}
+@media(max-width:700px){.arrow{display:none}}
+/* brief */
+.brief{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px -30px rgba(91,82,214,.35)}
+.brief-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--tint2);padding:18px 28px;border-bottom:1px solid var(--line)}
+.brief-h h3{font-size:20px}
+.score{background:var(--primary);color:#fff;border-radius:999px;font-weight:700;font-size:14px;padding:6px 14px}
+.bsec{padding:24px 28px;border-bottom:1px solid var(--line)}
+.bsec:last-child{border:0}
+.bsec h4{font-size:16px;color:var(--brand);margin-bottom:10px;letter-spacing:-.01em}
+.bsec ul{padding-left:20px;color:#2a2c40;font-size:15px}
+.bsec li{margin:6px 0}
+.bsec li b{color:var(--ink)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 24px}
+.kv div{font-size:14px;color:var(--muted)}.kv b{display:block;color:var(--ink);font-size:15px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--tint);color:var(--primary-d);font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px}
+/* mail */
+.mail{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px -30px rgba(91,82,214,.35);max-width:760px;margin:30px auto 0}
+.mail-top{padding:18px 28px;background:var(--tint2);border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
+.mail-top b{color:var(--ink)}
+.mail-body{padding:28px;font-size:15.5px;color:#25273b}
+.mail-body h4{margin:20px 0 6px;color:var(--brand);font-size:16px}
+.mail-body ul{padding-left:20px}.mail-body li{margin:5px 0}
+.mail-body p{margin:10px 0}
+.cta{margin:20px 0 0;background:var(--primary);border-radius:28px;color:#fff;padding:48px 32px;text-align:center}
+.cta h2{color:#fff}.cta p{color:#e4e1ff;margin:10px auto 22px;max-width:34em}
+.cta .btn{background:#fff;color:var(--primary-d);border-color:#fff}
+footer{padding:44px 0 56px;color:var(--muted);font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--line);padding-top:28px}
+/* pricing */
+.toggle{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px;margin-top:30px}
+.toggle button{font:inherit;font-weight:600;font-size:14px;border:0;background:none;color:var(--muted);padding:9px 20px;border-radius:999px;cursor:pointer}
+.toggle button[aria-pressed=true]{background:var(--tint);color:var(--ink)}
+.toggle small{background:var(--tint);color:var(--primary-d);border-radius:999px;padding:2px 8px;font-size:11.5px;margin-left:6px}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;margin-top:44px;align-items:start;text-align:left}
+.plan{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px 28px}
+.plan.pop{border:2px solid var(--primary);box-shadow:0 24px 60px -28px rgba(91,82,214,.5)}
+.badge{position:absolute;top:-14px;left:24px;background:var(--primary);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:999px}
+.plan h3{font-size:24px;font-weight:800}
+.plan .for{color:var(--muted);margin-top:6px;min-height:52px}
+.trial{display:inline-block;background:var(--tint);color:var(--primary-d);font-size:12.5px;font-weight:600;padding:4px 12px;border-radius:999px;margin-top:6px}
+.price{display:flex;align-items:baseline;gap:8px;margin-top:20px}
+.price b{font-size:54px;letter-spacing:-.04em;line-height:1}
+.price sup{font-size:22px;font-weight:700;align-self:flex-start;margin-top:6px}
+.price span{color:var(--muted);font-size:15px}
+.fine{font-size:13px;color:var(--muted);margin:8px 0 18px;min-height:40px}
+.feat{list-style:none;padding:20px 0 0;margin:22px 0 0;border-top:1px solid var(--line)}
+.feat li{display:flex;gap:10px;align-items:flex-start;margin:11px 0;font-size:15.5px}
+.feat li:before{content:"";flex:none;width:16px;height:16px;margin-top:5px;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3.2L13 4.8' fill='none' stroke='%235b52d6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.feat li.lead-in:before{display:none}.feat li.lead-in{font-weight:600}
+.new{margin-left:auto;background:var(--primary);color:#fff;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:.03em}
+.usage{margin-top:40px;border:1.5px dashed #cfcaf7;border-radius:20px;background:rgba(255,255,255,.8);padding:28px 30px;text-align:left}
+.usage h3{font-size:18px}.usage p{color:var(--muted);margin-top:6px}
+.compare{margin-top:30px;overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+table{border-collapse:collapse;width:100%;min-width:620px;font-size:15px}
+th,td{padding:14px 20px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--tint2);font-size:14px}
+tr:last-child td{border-bottom:0}
+td.y{color:var(--primary-d);font-weight:700}
+td.n{color:#b3b5c6}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.tabbar{position:sticky;top:14px;z-index:20;display:flex;justify-content:center;padding:0 16px;margin-top:14px}
+.tabs{display:inline-flex;gap:4px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px;box-shadow:0 10px 30px -12px rgba(91,82,214,.25);max-width:100%;overflow-x:auto}
+.tabs button{font:inherit;font-weight:600;font-size:15px;border:0;background:none;color:var(--muted);padding:10px 22px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s}
+.tabs button:hover{color:var(--ink);background:var(--tint2)}
+.tabs button[aria-selected=true]{background:var(--primary);color:#fff}
+.panel[hidden]{display:none}
+</style></head><body>
+<div class="tabbar"><div class="tabs" role="tablist" aria-label="Sections">
+<button role="tab" id="t-uc1" aria-controls="uc1" aria-selected="true" data-tab="uc1">Use case 1</button>
+<button role="tab" id="t-uc2" aria-controls="uc2" aria-selected="false" data-tab="uc2" tabindex="-1">Use case 2</button>
+<button role="tab" id="t-pricing" aria-controls="pricing" aria-selected="false" data-tab="pricing" tabindex="-1">Pricing</button>
+</div></div>
+<main>
+<div class="panel" id="uc1" role="tabpanel" aria-labelledby="t-uc1">
+<div class="wrap hero">
+<span class="pill">Use case 1 &middot; Business Development</span>
+<h1>Deep account research, <span class="grad">in under four minutes</span></h1>
+<p class="lead"><b>Quill</b> is a B2B sales intel orchestrator. Give it a target company and, optionally, a contact. It sends four specialist agents out to research, then fuses their findings into one structured prospect record.</p>
+<div class="stats">
+<div class="stat"><b>3&ndash;4 min</b><span>to run, per company</span></div>
+<div class="stat"><b>$0.06&ndash;0.07</b><span>cost per company</span></div>
+<div class="stat"><b>4</b><span>specialist worker agents</span></div>
+<div class="stat"><b>33</b><span>fields in the JSON output</span></div>
+</div></div>
+
+<section><div class="wrap">
+<h2>How it works</h2>
+<p class="sub">Quill acts as the manager. One input in, one structured brief out, with zero manual file handling: no PDFs, spreadsheets or chat reports.</p>
+<div class="flow">
+<div class="node"><h3>Input</h3><p>Target company, plus an optional contact name or role.</p></div><div class="arrow">&rarr;</div>
+<div class="node hl"><h3>Quill (orchestrator)</h3><p>Dispatches the four worker agents and collects their briefs.</p></div><div class="arrow">&rarr;</div>
+<div class="node"><h3>33-field JSON</h3><p>A single, comprehensive prospect record, ready for your CRM.</p></div>
+</div></div></section>
+
+<section style="padding-top:8px"><div class="wrap">
+<h2>The worker agents</h2>
+<p class="sub">Each agent owns one slice of the research, so every part of the brief comes from a specialist.</p>
+<div class="grid g2">
+<article class="card"><div class="icon">1</div><h3>Deal Desk</h3><div class="role">Corporate Activity &amp; M&amp;A Analyst</div><p>Maps recent mergers, acquisitions, divestitures, funding rounds, expansions and leadership changes, so your team can speak to the company's health and trajectory.</p></article>
+<article class="card"><div class="icon">2</div><h3>North Star</h3><div class="role">Strategy &amp; Objectives Researcher</div><p>Extracts current business goals from press releases, annual reports, earnings calls and investor materials, so your pitch aligns with stated priorities.</p></article>
+<article class="card"><div class="icon">3</div><h3>Wallet Watch</h3><div class="role">Procurement &amp; Spend Analyst</div><p>Detects what the company has been spending on: contracts, tenders, vendor awards and tech-stack signals, so you can time your approach.</p></article>
+<article class="card"><div class="icon">4</div><h3>Icebreaker</h3><div class="role">Contact LinkedIn Intel Researcher</div><p>Profiles the decision-maker you are pitching. If no contact is named, it finds the right person from LinkedIn, website data, press and registry records, then turns their public activity into ready-to-use icebreakers.</p></article>
+</div></div></section>
+
+<section style="padding-top:8px"><div class="wrap">
+<h2>Example output: HSBC</h2>
+<p class="sub">An account intelligence brief produced by Quill.</p>
+<div class="brief" style="margin-top:30px">
+<div class="brief-h"><h3>Account Intelligence Brief: HSBC</h3><span class="score">Opportunity score 8/10</span></div>
+<div class="bsec"><h4>Company overview</h4><div class="kv">
+<div>Website<b>hsbc.com</b></div><div>Industry<b>Banking &amp; Financial Services (Global Universal Bank)</b></div><div>Company size<b>~208,720 FTE (2026)</b></div><div>Market cap<b>~US$300bn (as of Feb 2026)</b></div><div>FY2025 profit before tax<b>US$29.9bn (-7% YoY after one-offs)</b></div><div>H1 2026 profit before tax<b>US$19.5bn (+23% YoY)</b></div></div></div>
+<div class="bsec"><h4>Corporate objectives &amp; strategy</h4><ul>
+<li><b>Restructuring:</b> Becoming a &lsquo;simple, more agile, focused bank&rsquo; built around four core businesses: Hong Kong, UK, Corporate &amp; Institutional Banking (CIB), and International Wealth &amp; Premier Banking (IWPB).</li>
+<li><b>Financial targets:</b> RoTE of 17%+ (2026&ndash;2028), revenue growth of 5% by 2028, and annualized simplification savings of $2bn.</li>
+<li><b>Cost discipline:</b> ~1% cost growth targeted for FY2026, backed by a $1.8bn medium-term cost reallocation and ~20,000 reported role-cut plans (Mar 2026).</li>
+<li><b>Technology &amp; ESG:</b> AI and automation push (Chief AI Officer appointed Mar 2026; partnerships with Google Cloud and Mistral AI). Net zero by 2050, ~40% emissions cut by 2030, and US$750bn&ndash;1tn in sustainable finance by 2030.</li></ul></div>
+<div class="bsec"><h4>M&amp;A &amp; divestiture activity</h4>
+<p style="color:#2a2c40;font-size:15px;margin-bottom:8px">HSBC is unwinding and recutting its global estate, with ~15 non-strategic exits since 2025 to fund its Asia and Middle East pivot.</p><ul>
+<li><b>Acquisitions / privatizations:</b> Remainder of Hang Seng Bank (US$13.7bn, 2025).</li>
+<li><b>Key divestitures (2025&ndash;2026):</b> HSBC Life Singapore (to Allianz, Jul 2026); Australian loan book (to Blackstone, Jul 2026); Indonesia wealth/retail (to OCBC, May 2026); Germany private banking (to BNP Paribas, Oct 2025); Sri Lanka retail (to Nations Trust, Sep 2025); Argentina operations (to Grupo Financiero Galicia, 2025).</li></ul></div>
+<div class="bsec"><h4>Key contact profile: Alison Rogan</h4><div class="kv">
+<div>Role<b>Head of Travel, Events and Expense Management</b></div><div>Location<b>London, United Kingdom</b></div><div>Tenure<b>~2023/2024 to present</b></div><div>Contact info<b>LinkedIn profile. No direct email or phone published; HSBC uses role-based routing.</b></div></div>
+<ul style="margin-top:14px"><li><b>Background:</b> 20+ years in travel management, including ~24 years at Barclays as Global Head of Travel &amp; Expense. Current VP of the GBTA Board of Directors and former Chair of the ITM Board of Directors.</li>
+<li><b>Recent activity:</b> Appeared on GBTA's &lsquo;The Business of Travel&rsquo; podcast (Jul 2026), advocating AI and data-driven automation for cost control.</li></ul>
+<div class="chips" style="margin-top:12px"><span class="chip">AI &amp; tech in travel</span><span class="chip">Cost control</span><span class="chip">Reporting automation</span><span class="chip">Duty of care</span><span class="chip">Sustainability</span><span class="chip">Industry mentoring</span></div></div>
+<div class="bsec"><h4>T&amp;E procurement landscape</h4><ul>
+<li><b>Current stack:</b> Legacy BTI booking tool (now Amex GBT), SAP Concur for expense, and Conferma for virtual payments.</li>
+<li><b>Recent activity:</b> Conferma virtual-card partnership expanded into APAC (Sep 2026). Currently hiring a Europe Travel &amp; Mobility Lead.</li>
+<li><b>Procurement process:</b> Strict invitation-only sourcing via Coupa (Tradeshift and Candex for e-invoicing). No public RFPs. Travel tech contracts typically run on 3&ndash;5 year cycles.</li></ul></div>
+<div class="bsec" style="background:var(--tint2)"><h4>Business development action plan</h4><ul>
+<li><b>The core opportunity:</b> HSBC's continuous divestiture and Asia pivot means its travel, events and expense estate is being unwound and reshaped country by country. That creates an immediate need to re-examine supplier coverage, duty of care and spend visibility across a shifting footprint, under a strict $2bn savings mandate.</li>
+<li><b>Recommended approach:</b> Reach out directly to Alison Rogan on LinkedIn, where she is highly active, and avoid the HSBC switchboard. Position yourself as a transformation partner, not just a cost-cutter. Reference her GBTA and ITM thought leadership on smarter, resilient programs, and focus on AI-driven reporting, spend visibility and duty of care during heavy restructuring.</li>
+<li><b>Secondary targets:</b> Jouk Boeye (MD Corporate Sourcing &amp; Sustainable Operations) or Gary Shearman (Head of Procurement UK).</li></ul></div>
+</div></div></section>
+</div>
+<div class="panel" id="uc2" role="tabpanel" aria-labelledby="t-uc2" hidden>
+<div class="wrap hero">
+<span class="pill">Use case 2 &middot; Personalized Travel</span>
+<h1>A travel concierge that <span class="grad">writes to every client</span></h1>
+<p class="lead"><b>Wayfarer</b> automates research and outreach for business travelers. It turns a travel brief into a personalized recommendation email for each client: routes, dining and events, sent straight from Outlook.</p>
+<div class="stats">
+<div class="stat"><b>&lt; 2 min</b><span>to run</span></div>
+<div class="stat"><b>~$0.05</b><span>cost per brief</span></div>
+<div class="stat"><b>1</b><span>single AI agent</span></div>
+<div class="stat"><b>Outlook</b><span>sends the email for you</span></div>
+</div></div>
+
+<section><div class="wrap">
+<h2>How it works</h2>
+<p class="sub">Provide a brief as text, or upload an Excel file with one row per client. Wayfarer handles the rest.</p>
+<div class="flow">
+<div class="node"><h3>Travel brief</h3><p>Text, or a bulk Excel file with one row per client.</p></div><div class="arrow">&rarr;</div>
+<div class="node hl"><h3>Wayfarer researches</h3><p>Office location, exact travel dates and known hobbies, for each client.</p></div><div class="arrow">&rarr;</div>
+<div class="node"><h3>Email sent via Outlook</h3><p>A personalized recommendation email lands in the client's inbox.</p></div>
+</div></div></section>
+
+<section style="padding-top:8px"><div class="wrap">
+<h2>Key features</h2>
+<div class="grid g3">
+<article class="card"><div class="icon">&#9679;</div><h3>Hyper-personalized</h3><p>Tailors recommendations, such as jogging routes, to each traveler's hobbies.</p></article>
+<article class="card"><div class="icon">&#9679;</div><h3>Location-specific</h3><p>Finds restaurants within walking distance of the exact office they are visiting.</p></article>
+<article class="card"><div class="icon">&#9679;</div><h3>Time-sensitive</h3><p>Identifies live events happening only during their exact travel dates.</p></article>
+</div></div></section>
+
+<section style="padding-top:8px"><div class="wrap">
+<h2>Example output</h2>
+<p class="sub">Input: John, traveling to London (Moorgate office), Oct 12&ndash;15. Hobby: jogging.</p>
+<div class="mail">
+<div class="mail-top"><div><b>To:</b> John</div><div><b>Subject:</b> Your upcoming trip to London</div></div>
+<div class="mail-body">
+<p>Hi John,</p>
+<p>Ahead of your London trip from 12&ndash;15 October, I've pulled together a few recommendations based on your stay around Moorgate and your interest in jogging.</p>
+<h4>Jogging</h4><ul>
+<li><b>Barbican &amp; City loop:</b> 5 km, quiet streets, ideal for an early morning run.</li>
+<li><b>Thames Path (Tower Bridge stretch):</b> around 8 km out-and-back, riverside and well-populated.</li></ul>
+<h4>Restaurants near the office</h4><ul>
+<li><b>City Caphe:</b> Vietnamese, around 5 minutes away.</li>
+<li><b>Dishoom Shoreditch:</b> Indian, around 10&ndash;12 minutes away.</li></ul>
+<h4>While you're in London</h4>
+<p>There are a few events happening during your stay that may be worth checking out:</p><ul><li><b>13 Oct:</b> Sample Concert at Barbican Centre</li></ul>
+<p>I've also included a couple of nearby activities that fit around your schedule.</p>
+<p>Have a great trip!</p><p>Best,<br>Travel Assistant</p>
+</div></div></div></section>
+</div>
+<div class="panel" id="pricing" role="tabpanel" aria-labelledby="t-pricing" hidden>
+<div class="wrap hero" style="text-align:center">
+<span class="pill">Pricing</span>
+<h1>Simple pricing that <span class="grad">scales with your agents</span></h1>
+<p class="lead">Per-user plans for deploying, managing and governing custom AI agents and workflows, from a first pilot to org-wide rollout.</p>
+<div class="toggle" role="group" aria-label="Billing period"><button id="bq" aria-pressed="true">Quarterly</button><button id="by" aria-pressed="false">Yearly <small>Save 20%</small></button></div>
+<div class="plans">
+<article class="plan">
+<h3>Starter</h3><p class="for">For teams piloting their first agents.</p>
+<div class="price"><sup>$</sup><b data-p="19">19</b><span>/user/month</span></div>
+<p class="fine" data-m="5" data-q="57">Minimum 5 users &middot; $57 billed quarterly</p>
+<a class="btn ghost" href="#pricing">Contact us</a>
+<ul class="feat"><li>AI Chat &amp; Knowledge Base</li><li>Agent builder with personas &amp; tools</li><li>Industry agent templates</li><li><b>10</b> AI agents per workspace</li><li>Basic workflow builder + approval gates</li><li>Basic audit logs</li><li>Standard support</li></ul></article>
+<article class="plan pop"><span class="badge">Most popular</span>
+<h3>Business</h3><p class="for">For teams scaling agents across the org.</p><span class="trial">14-day free trial</span>
+<div class="price"><sup>$</sup><b data-p="49">49</b><span>/user/month</span></div>
+<p class="fine" data-m="20" data-q="147">Minimum 20 users &middot; $147 billed quarterly</p>
+<a class="btn wide" href="#pricing">Contact us</a>
+<ul class="feat"><li class="lead-in">Everything in Starter, plus:</li><li><b>Unlimited</b> AI agents</li><li>Advanced workflow builder</li><li>API access</li><li>SSO &amp; RBAC</li><li>Full audit logs</li><li>Private cloud (add-on)</li><li>BYO LLM</li><li>Priority support</li></ul></article>
+<article class="plan">
+<h3>Enterprise</h3><p class="for">For governed, org-wide agent deployment.</p>
+<div class="price"><sup>$</sup><b data-p="99">99</b><span>/user/month</span></div>
+<p class="fine" data-m="100" data-q="297">Minimum 100 users &middot; $297 billed quarterly</p>
+<a class="btn ghost" href="#pricing">Contact us</a>
+<ul class="feat"><li class="lead-in">Everything in Business, plus:</li><li>Enterprise audit logs</li><li>Private cloud included option</li><li>Enterprise SLA support</li><li>Custom guardrails &amp; evals<span class="new">NEW</span></li><li>Private model deployment<span class="new">NEW</span></li><li>Multi-region deployment<span class="new">NEW</span></li></ul></article>
+</div>
+<div class="usage"><h3>AI model usage</h3><p>Use any of 100+ AI models: our managed models, or connect your own. Business and Enterprise plans include BYO LLM.</p></div>
+</div>
+
+<section><div class="wrap">
+<h2>Compare plans</h2>
+<div class="compare"><table><thead><tr><th>Feature</th><th>Starter</th><th>Business</th><th>Enterprise</th></tr></thead><tbody>
+<tr><td>Minimum users</td><td>5</td><td>20</td><td>100</td></tr>
+<tr><td>AI agents per workspace</td><td>10</td><td class="y">Unlimited</td><td class="y">Unlimited</td></tr>
+<tr><td>Workflow builder</td><td>Basic + approval gates</td><td>Advanced</td><td>Advanced</td></tr>
+<tr><td>Audit logs</td><td>Basic</td><td>Full</td><td>Enterprise</td></tr>
+<tr><td>API access</td><td class="n">&ndash;</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+<tr><td>SSO &amp; RBAC</td><td class="n">&ndash;</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+<tr><td>BYO LLM</td><td class="n">&ndash;</td><td class="y">&#10003;</td><td class="y">&#10003;</td></tr>
+<tr><td>Private cloud</td><td class="n">&ndash;</td><td>Add-on</td><td class="y">Included option</td></tr>
+<tr><td>Custom guardrails &amp; evals</td><td class="n">&ndash;</td><td class="n">&ndash;</td><td class="y">&#10003;</td></tr>
+<tr><td>Private model deployment</td><td class="n">&ndash;</td><td class="n">&ndash;</td><td class="y">&#10003;</td></tr>
+<tr><td>Multi-region deployment</td><td class="n">&ndash;</td><td class="n">&ndash;</td><td class="y">&#10003;</td></tr>
+<tr><td>Support</td><td>Standard</td><td>Priority</td><td>Enterprise SLA</td></tr>
+</tbody></table></div>
+<div class="card" style="margin-top:24px"><h3>Budgeting note</h3><p style="margin-top:6px">The quarterly figure shown on each plan is the cost of one user for three months. Your total scales with seats, and each plan has a seat minimum: Starter 5 seats (about $285 per quarter), Business 20 seats (about $2,940 per quarter) and Enterprise 100 seats (about $29,700 per quarter).</p></div>
+</div></section>
+</div>
+</main>
+<footer><div class="wrap foot"><a class="logo" href="#" aria-label="27x.ai">27<span class="x">X</span><span class="ai">.ai</span></a><span>An enterprise AI adoption platform for deploying, managing and governing AI agents.</span></div></footer>
+<script>
+(function(){var q=document.getElementById('bq'),y=document.getElementById('by');
+function set(yr){q.setAttribute('aria-pressed',!yr);y.setAttribute('aria-pressed',yr);
+document.querySelectorAll('.price b').forEach(function(b){var p=+b.dataset.p;b.textContent=yr?(p*.8).toFixed(2).replace(/\.00$/,''):p;});
+document.querySelectorAll('.fine').forEach(function(f){var p=+f.dataset.q/3,m=f.dataset.m;
+f.innerHTML=yr?'Minimum '+m+' users &middot; $'+(p*.8*12).toFixed(2)+' billed yearly':'Minimum '+m+' users &middot; $'+(p*3)+' billed quarterly';});}
+q.onclick=function(){set(false)};y.onclick=function(){set(true)};})();
+</script>
+<script>
+(function(){var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+function show(id,focus){if(!document.getElementById(id))id='uc1';
+tabs.forEach(function(t){var on=t.dataset.tab===id;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;if(on&&focus)t.focus();});
+document.querySelectorAll('.panel').forEach(function(p){p.hidden=p.id!==id;});
+try{history.replaceState(null,'','#'+id);}catch(e){}window.scrollTo(0,0);}
+tabs.forEach(function(t,i){t.addEventListener('click',function(){show(t.dataset.tab)});
+t.addEventListener('keydown',function(e){var n=e.key==='ArrowRight'?i+1:e.key==='ArrowLeft'?i-1:null;
+if(n===null)return;e.preventDefault();show(tabs[(n+tabs.length)%tabs.length].dataset.tab,true);});});
+document.querySelectorAll('[data-go]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();show(a.dataset.go)})});
+var h=location.hash.slice(1);if(h&&document.getElementById(h)&&document.getElementById(h).classList.contains('panel'))show(h);})();
+</script>
+</body></html>
